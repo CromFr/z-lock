@@ -1,6 +1,6 @@
 #CXXFLAGS = -g -W -Wall -ansi -pedantic
 #CXXFLAGS = -pg -g -W -Wall -ansi -pedantic
-CXXFLAGS = -O2 -W -Wall -ansi -pedantic -I.
+CXXFLAGS = -O2 -W -Wall -ansi -pedantic -I. -fpermissive
 CFLAGS = -O2
 OBJS = bulletmlparser-tinyxml.o bulletmlparser.o bulletmltree.o calc.o formula-variables.o bulletmlrunner.o bulletmlrunnerimpl.o bulletml_d.o
 
