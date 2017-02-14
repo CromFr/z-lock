@@ -25,8 +25,35 @@ The game was created by HELLO WORLD PROJECT (Jumpei Isshiki) (http://isk8086.my.
 
 It uses the libBulletML library by shinichiro.h (http://shinh.skr.jp/libbulletml/index_en.html).
 
-This fork is a port to D version 2, Linux, Pandora.
+This fork is a port to D version 2, Linux.
 
 It uses std.random module from D version 1, ported to D version 2, which is under zlib/libpng License (See phoboslicense.txt in sources/phobos directory).
 
+# Build instructions
+
+## Linux
+
+```bash
+# Build BulletML
+mv bulletml
+make
+mv ..
+
+# Build Z-Lock
+dub build
+
+# Package game files
+mkdir -p out
+cp resources/* z-lock out/
+
+# Run
+cd out/
+./z-lock
+```
+
+## Linux Pandora
+
 The Pandora release uses ptitSeb's fork of glshim - https://github.com/ptitSeb/glshim
+
+
+
