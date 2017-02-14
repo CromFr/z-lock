@@ -385,7 +385,7 @@ void TSKtargetLockInt(int id)
 
 void TSKeshotSimple(int id)
 {
-	double	tpos[XY];
+	double[XY] tpos;
 
 	switch(TskBuf[id].step){
 		case	0:

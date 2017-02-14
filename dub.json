@@ -1,0 +1,21 @@
+{
+	"name": "z-lock",
+	"authors": ["Jumpei Isshiki"],
+	"description": "Rail shooter game",
+	"copyright": "Jumpei Isshiki",
+	"license": "BSD 2-clause",
+	"lflags": ["-Lbulletml/"],
+	"libs": [
+		"SDL",
+		"SDL_mixer",
+		"GL",
+		"ts",
+		"bulletml_d",
+		"stdc++",
+	],
+	"sourcePaths": [
+		"sources/import",
+		"sources/phobos",
+		"sources/src"
+	]
+}

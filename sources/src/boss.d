@@ -60,8 +60,8 @@ void TSKboss(int id)
 			TskBuf[id].body_ofs[0][Y] = 0.0f;
 			TskBuf[id].body_ofs[0][Z] = 0.0f;
 			TskBuf[id].body_ofs[0][W] = 0.0f;
-			float pos[XY];
-			float rad[XY];
+			float[XY] pos;
+			float[XY] rad;
 			float ang;
 			ang = cast(float)(Rand() % 10000) / 10000.0f * 2.0f * PI;
 			for(int i = 1; i < TskBuf[id].body_ofs.length; i++){
