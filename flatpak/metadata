@@ -1,0 +1,14 @@
+[Application]
+name=org.zlock.z-lock
+runtime=org.freedesktop.Platform/x86_64/1.4
+command=z-lock
+
+
+[Context]
+shared=ipc;
+sockets=x11;wayland;pulseaudio;
+devices=dri;
+
+
+[Environment]
+ZLOCK_RES=/app/res
