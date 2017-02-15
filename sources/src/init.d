@@ -14,32 +14,38 @@ private	import	util_pad;
 private	import	bulletcommand;
 private	import	define;
 private	import	gctrl;
+private	import	std.process: environment;
+private	import	std.path: buildPath;
 
 void	grpINIT()
 {
-	readSDLtexture("title.bmp", GRP_TITLE);
+	immutable prefix = environment["ZLOCK_RES"];
+
+	readSDLtexture(buildPath(prefix, "title.bmp"), GRP_TITLE);
 }
 
 void	sndINIT()
 {
-	loadSNDmusic("zlock01.ogg",SND_BGM01, -1);
-	loadSNDmusic("zlock02.ogg",SND_BGM02, -1);
-	loadSNDmusic("zlock03.ogg",SND_BGM03, -1);
-	loadSNDmusic("zlock04.ogg",SND_BGM04, -1);
-	loadSNDmusic("zlock05.ogg",SND_BGM05, -1);
+	immutable prefix = environment["ZLOCK_RES"];
 
-	loadSNDse("se_lock_on.wav",SND_SE_LOCK_ON,0);
-	loadSNDse("se_spshot.wav" ,SND_SE_SPSHOT ,1);
-	loadSNDse("se_sdest.wav"  ,SND_SE_SDEST  ,1);
-	loadSNDse("se_edmg.wav"   ,SND_SE_EDMG   ,2);
-	loadSNDse("se_edest1.wav" ,SND_SE_EDEST1 ,3);
-	loadSNDse("se_edest2.wav" ,SND_SE_EDEST2 ,4);
-	loadSNDse("se_edest3.wav" ,SND_SE_EDEST3 ,4);
+	loadSNDmusic(buildPath(prefix, "zlock01.ogg"),SND_BGM01, -1);
+	loadSNDmusic(buildPath(prefix, "zlock02.ogg"),SND_BGM02, -1);
+	loadSNDmusic(buildPath(prefix, "zlock03.ogg"),SND_BGM03, -1);
+	loadSNDmusic(buildPath(prefix, "zlock04.ogg"),SND_BGM04, -1);
+	loadSNDmusic(buildPath(prefix, "zlock05.ogg"),SND_BGM05, -1);
 
-	loadSNDse("voice_ok.wav"     ,SND_VOICE_CHARGE ,5);
-	loadSNDse("voice_over.wav"   ,SND_VOICE_OVER   ,5);
-	loadSNDse("voice_extend.wav" ,SND_VOICE_EXTEND ,6);
-	loadSNDse("voice_warring.wav",SND_VOICE_WARNING,7);
+	loadSNDse(buildPath(prefix, "se_lock_on.wav"),SND_SE_LOCK_ON,0);
+	loadSNDse(buildPath(prefix, "se_spshot.wav") ,SND_SE_SPSHOT ,1);
+	loadSNDse(buildPath(prefix, "se_sdest.wav")  ,SND_SE_SDEST  ,1);
+	loadSNDse(buildPath(prefix, "se_edmg.wav")   ,SND_SE_EDMG   ,2);
+	loadSNDse(buildPath(prefix, "se_edest1.wav") ,SND_SE_EDEST1 ,3);
+	loadSNDse(buildPath(prefix, "se_edest2.wav") ,SND_SE_EDEST2 ,4);
+	loadSNDse(buildPath(prefix, "se_edest3.wav") ,SND_SE_EDEST3 ,4);
+
+	loadSNDse(buildPath(prefix, "voice_ok.wav")     ,SND_VOICE_CHARGE ,5);
+	loadSNDse(buildPath(prefix, "voice_over.wav")   ,SND_VOICE_OVER   ,5);
+	loadSNDse(buildPath(prefix, "voice_extend.wav") ,SND_VOICE_EXTEND ,6);
+	loadSNDse(buildPath(prefix, "voice_warring.wav"),SND_VOICE_WARNING,7);
 
 	volumeSNDse(vol_se);
 	volumeSNDmusic(vol_music);
@@ -47,24 +53,26 @@ void	sndINIT()
 
 void	bulletINIT()
 {
+	immutable prefix = environment["ZLOCK_RES"];
+
 	initBulletcommandParser(256);
-	readBulletcommandParser( BULLET_SHIP00, "bullet00.xml");
-	readBulletcommandParser( BULLET_SHIP01, "bullet01.xml");
-	readBulletcommandParser( BULLET_SHIP02, "bullet02.xml");
-	readBulletcommandParser( BULLET_SHIP03, "bullet03.xml");
-	readBulletcommandParser( BULLET_SHIP04, "bullet04.xml");
-	readBulletcommandParser( BULLET_SHIP05, "bullet05.xml");
-	readBulletcommandParser( BULLET_SHIP06, "bullet06.xml");
-	readBulletcommandParser( BULLET_SHIP07, "bullet07.xml");
-	readBulletcommandParser( BULLET_SHIP08, "bullet08.xml");
-	readBulletcommandParser( BULLET_ZAKO01, "bulletzako01.xml");
-	readBulletcommandParser( BULLET_ZAKO02, "bulletzako02.xml");
-	readBulletcommandParser( BULLET_ZAKO03, "bulletzako03.xml");
-	readBulletcommandParser( BULLET_ZAKO04, "bulletzako04.xml");
-	readBulletcommandParser( BULLET_ZAKO05, "bulletzako05.xml");
-	readBulletcommandParser( BULLET_ZAKO06, "bulletzako06.xml");
-	readBulletcommandParser( BULLET_ZAKO07, "bulletzako07.xml");
-	readBulletcommandParser( BULLET_ZAKO08, "bulletzako08.xml");
+	readBulletcommandParser( BULLET_SHIP00, buildPath(prefix, "bullet00.xml"));
+	readBulletcommandParser( BULLET_SHIP01, buildPath(prefix, "bullet01.xml"));
+	readBulletcommandParser( BULLET_SHIP02, buildPath(prefix, "bullet02.xml"));
+	readBulletcommandParser( BULLET_SHIP03, buildPath(prefix, "bullet03.xml"));
+	readBulletcommandParser( BULLET_SHIP04, buildPath(prefix, "bullet04.xml"));
+	readBulletcommandParser( BULLET_SHIP05, buildPath(prefix, "bullet05.xml"));
+	readBulletcommandParser( BULLET_SHIP06, buildPath(prefix, "bullet06.xml"));
+	readBulletcommandParser( BULLET_SHIP07, buildPath(prefix, "bullet07.xml"));
+	readBulletcommandParser( BULLET_SHIP08, buildPath(prefix, "bullet08.xml"));
+	readBulletcommandParser( BULLET_ZAKO01, buildPath(prefix, "bulletzako01.xml"));
+	readBulletcommandParser( BULLET_ZAKO02, buildPath(prefix, "bulletzako02.xml"));
+	readBulletcommandParser( BULLET_ZAKO03, buildPath(prefix, "bulletzako03.xml"));
+	readBulletcommandParser( BULLET_ZAKO04, buildPath(prefix, "bulletzako04.xml"));
+	readBulletcommandParser( BULLET_ZAKO05, buildPath(prefix, "bulletzako05.xml"));
+	readBulletcommandParser( BULLET_ZAKO06, buildPath(prefix, "bulletzako06.xml"));
+	readBulletcommandParser( BULLET_ZAKO07, buildPath(prefix, "bulletzako07.xml"));
+	readBulletcommandParser( BULLET_ZAKO08, buildPath(prefix, "bulletzako08.xml"));
 }
 
 void configINIT()
